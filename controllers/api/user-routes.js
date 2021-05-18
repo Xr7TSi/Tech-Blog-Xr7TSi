@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+//this is the api/users endpoint
 
 // create new user
 // post should look lie this:
