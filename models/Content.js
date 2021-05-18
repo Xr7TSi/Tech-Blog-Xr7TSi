@@ -18,6 +18,12 @@ Content.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  {
+    sequelize,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'content',
+  }
 });
 
 module.exports = Content
