@@ -1,0 +1,14 @@
+[
+  {
+    "user_name": "Sal",
+    "title": "Sal's Blog Post",
+    "content": "Sal like to write about sequelize."
+  },
+  {
+    "user_name": "Amiko",
+    "title": "Amiko's Blog Post",
+    "content": "Amiko thinks sequelize should have better error messages."
+  }
+]
+
+
