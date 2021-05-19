@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
     }
     res.status(200).json(selectedContent);
     const content = selectedContent.get({ plain: true });
-    res.render("selectedContent", content);
+    res.render('selectedContent', content);
   } catch (err) {
     res.status(500).json(err);
   }

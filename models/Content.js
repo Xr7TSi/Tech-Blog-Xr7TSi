@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Content extends Model {}
 
@@ -28,8 +28,12 @@ Content.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "content",
+    modelName: 'content',
   }
 );
 
 module.exports = Content;
+
+
+
+
