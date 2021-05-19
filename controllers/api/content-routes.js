@@ -12,36 +12,26 @@ router.get("/", async (req, res) => {
   res.json(allContent);
 });
 
-// // get blog post by id
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const selectedContent = await Content.findOne({
-//       where: { id: req.params.id },
-//     });
-//     if (!selectedContent) {
-//       res
-//         .status(404)
-//         .json({ message: "No blog content exists under the requested id." });
-//       return;
-//     }
-//     res.status(200).json(selectedContent);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 // get blog post by id and render selectedContent.handlebars
 router.get("/:id", async (req, res) => {
   try {
-    const selectedContent = await Content.findByPK(req.params.id);
-    console.log(selectedContent);
+    const selectedContent = await Content.findOne({
+      where: { id: req.params.id },
+    });
+    if (!selectedContent) {
+      res
+        .status(404)
+        .json({ message: "No blog content exists under the requested id." });
+      return;
+    }
+    res.status(200).json(selectedContent);
     const content = selectedContent.get({ plain: true });
     res.render("selectedContent", content);
-    res.status(200).json(selectedContent);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 // post a new blog
 /* post should look like this...
