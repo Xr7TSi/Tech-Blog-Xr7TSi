@@ -24,9 +24,9 @@ router.get("/:id", async (req, res) => {
         .json({ message: "No blog content exists under the requested id." });
       return;
     }
-    res.status(200).json(selectedContent);
     const content = selectedContent.get({ plain: true });
     res.render('selectedContent', content);
+    // console.log(Content)
   } catch (err) {
     res.status(500).json(err);
   }
