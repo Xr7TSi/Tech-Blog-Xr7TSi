@@ -3,14 +3,26 @@ const { Content } = require("../../models");
 
 //this is the api/content endpoint
 
-// gets all blog posts
+
+// gets all blog posts and render allContent.handlebars
 router.get("/", async (req, res) => {
-  const allContent = await Content.findAll().catch((err) => {
-    res.json(err);
-  });
-  res.render("allPosts", allContent);
-  res.json(allContent);
+  try {
+    const allContent = await Content.findAll();
+    if (!allContent) {
+      res
+        .status(404)
+        .json({ message: "No blog content exists." });
+      return;
+    }
+    // const content = allContent.get({ plain: true });
+    // res.render('allContent', content);
+    
+    res.render('allContent');
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 // get blog post by id and render selectedContent.handlebars
 router.get("/:id", async (req, res) => {
@@ -26,7 +38,6 @@ router.get("/:id", async (req, res) => {
     }
     const content = selectedContent.get({ plain: true });
     res.render('selectedContent', content);
-    // console.log(Content)
   } catch (err) {
     res.status(500).json(err);
   }
