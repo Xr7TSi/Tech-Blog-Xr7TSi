@@ -1,13 +1,11 @@
-
-
-
 <section>
-    
+    <h1>Home Page</h1>
     
   {{#each allContentMapped as |content|}}
+  
   <h5>Blog post from: {{content.user_name}} </h5>
-
-  {{content.content}}
+  <h6>{{content.title}}</h6>
+  <h7>{{content.content}}</h7>
 
   
   {{/each}}

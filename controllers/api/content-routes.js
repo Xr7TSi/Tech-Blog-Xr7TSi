@@ -5,24 +5,25 @@ const { Content } = require("../../models");
 
 
 // gets all blog posts and render allContent.handlebars
-router.get("/", async (req, res) => {
-  try {
-    const allContent = await Content.findAll();
-    if (!allContent) {
-      res
-        .status(404)
-        .json({ message: "No blog content exists." });
-      return;
-    }
-    const allContentMapped = allContent.map((content) => content.get({ plain: true }));
-    res.render('allContent', { allContentMapped });
+// this was moved to home-routes.js
+// router.get("/", async (req, res) => {
+//   try {
+//     const allContent = await Content.findAll();
+//     if (!allContent) {
+//       res
+//         .status(404)
+//         .json({ message: "No blog content exists." });
+//       return;
+//     }
+//     const allContentMapped = allContent.map((content) => content.get({ plain: true }));
+//     res.render('allContent', { allContentMapped });
     
    
-  } catch (err) {
-    console.log(err)
-    res.status(500).json(err);
-  }
-});
+//   } catch (err) {
+//     console.log(err)
+//     res.status(500).json(err);
+//   }
+// });
 
 
 // get blog post by id and render selectedContent.handlebars
