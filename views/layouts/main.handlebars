@@ -20,21 +20,24 @@
   </div>
 
 <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
+
+     <a href="/">Home</a>
+  
+
     <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
+    
+  
     <a href="/login">Login</a>
-    {{/if}}
+    
   </nav>
 
 <main class="container container-fluid mt-5">
   {{{ body }}}
 </main>
 
-{{#if loggedIn}}
+
 <script src="/js/logout.js"></script>
-{{/if}}
+
   
 </body>
 
