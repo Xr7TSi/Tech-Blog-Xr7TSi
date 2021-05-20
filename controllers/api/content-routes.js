@@ -14,8 +14,8 @@ router.get("/", async (req, res) => {
         .json({ message: "No blog content exists." });
       return;
     }
-    // const content = allContent.get({ plain: true });
-    res.render('allContent', allContent);
+    const allContentMapped = allContent.map((content) => content.get({ plain: true }));
+    res.render('allContent', { allContentMapped });
     
    
   } catch (err) {
