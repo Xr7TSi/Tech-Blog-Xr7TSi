@@ -17,10 +17,25 @@
         The Tech Blog
       </h1>
     </header>
-      <main class="container container-fluid mt-5">
-        {{{ body }}}
-      </main>
   </div>
-  </body>
+
+<nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
+
+<main class="container container-fluid mt-5">
+  {{{ body }}}
+</main>
+
+{{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
+  
+</body>
 
 </html>
