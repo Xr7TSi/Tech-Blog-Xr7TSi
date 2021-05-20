@@ -15,10 +15,11 @@ router.get("/", async (req, res) => {
       return;
     }
     // const content = allContent.get({ plain: true });
-    // res.render('allContent', content);
+    res.render('allContent', allContent);
     
-    res.render('allContent');
+   
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
