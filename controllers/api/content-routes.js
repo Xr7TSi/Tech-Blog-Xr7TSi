@@ -36,10 +36,8 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    console.log(req.session)
     const newContent = await Content.create({
       user_name: req.session.username,
-      // user_name: "Tim",
       title: req.body.title,
       content: req.body.content,
     });
@@ -91,6 +89,22 @@ router.delete("/:id", async (req, res) => {
     res.status(200).json(contentDelete);
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+// create a comment
+router.post('/comment', async (req, res) => {
+  
+  try {
+    console.log(req.session)
+    const newComment = await Comment.create({
+      user_name: req.session.username,
+      content: req.body.content,
+    });
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+    
   }
 });
 
