@@ -25,5 +25,6 @@ if (user_name && title && content) {
   document
     .querySelector('.post-form')
     .addEventListener('submit', postFormHandler);
-
+    
+    
     

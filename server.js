@@ -40,3 +40,6 @@ app.use(routes);
 sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
 });
+
+
+// use npm run dev to start application with live server restarts on saves

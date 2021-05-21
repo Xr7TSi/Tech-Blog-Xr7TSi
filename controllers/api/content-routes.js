@@ -26,21 +26,13 @@ router.get("/:id", async (req, res) => {
 
 
 // post a new blog
-/* post should look like this...
+/* post in postman should look like this...
     {
       "user_name": "jrein",
       "title": "Best Blog Post"
       "content": "Here is some terrific blog content."
     }
   */
-// router.post("/", async (req, res) => {
-//   try {
-//     const newContent = await Content.create(req.body);
-//     res.status(200).json(newContent);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
 
 router.post("/", async (req, res) => {
   try {
