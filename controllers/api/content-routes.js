@@ -4,27 +4,6 @@ const { Content } = require("../../models");
 //this is the api/content endpoint
 
 
-// gets all blog posts and render allContent.handlebars
-// this was moved to home-routes.js
-// router.get("/", async (req, res) => {
-//   try {
-//     const allContent = await Content.findAll();
-//     if (!allContent) {
-//       res
-//         .status(404)
-//         .json({ message: "No blog content exists." });
-//       return;
-//     }
-//     const allContentMapped = allContent.map((content) => content.get({ plain: true }));
-//     res.render('allContent', { allContentMapped });
-    
-   
-//   } catch (err) {
-//     console.log(err)
-//     res.status(500).json(err);
-//   }
-// });
-
 
 // get blog post by id and render selectedContent.handlebars
 router.get("/:id", async (req, res) => {
@@ -54,14 +33,28 @@ router.get("/:id", async (req, res) => {
       "content": "Here is some terrific blog content."
     }
   */
+// router.post("/", async (req, res) => {
+//   try {
+//     const newContent = await Content.create(req.body);
+//     res.status(200).json(newContent);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
+
 router.post("/", async (req, res) => {
   try {
-    const newContent = await Content.create(req.body);
+    const newContent = await Content.create({
+      user_name: req.body.user_name,
+      title: req.body.title,
+      content: req.body.content
+    });
     res.status(200).json(newContent);
   } catch (err) {
     res.status(400).json(err);
   }
 });
+
 
 // update a blog post
 /* put should look like this...

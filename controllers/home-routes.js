@@ -30,8 +30,12 @@ router.get('/login', (req, res) => {
     res.redirect('/');
     return;
   }
-
   res.render('login');
+});
+
+// post
+router.get('/post', (req, res) => {
+  res.render('createContent');
 });
 
 
