@@ -7,7 +7,7 @@ const postFormHandler = async (event) => {
   
 // code to post blog to database
 if (user_name && title && content) {
-  const response = await fetch('/api/content-routes', {
+  const response = await fetch('/api/content', {
     method: 'POST',
     body: JSON.stringify({ user_name, title, content }),
     headers: { 'Content-Type': 'application/json' },
