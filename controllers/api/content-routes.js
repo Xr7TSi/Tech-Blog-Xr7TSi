@@ -37,13 +37,15 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newContent = await Content.create({
-      user_name: req.body.user_name,
+      user_name: req.session.username,
+      // user_name: "Tim",
       title: req.body.title,
-      content: req.body.content
+      content: req.body.content,
     });
     res.status(200).json(newContent);
   } catch (err) {
     res.status(400).json(err);
+    
   }
 });
 
