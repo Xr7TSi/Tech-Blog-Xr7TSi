@@ -1,6 +1,7 @@
 const postFormHandler = async (event) => {
     event.preventDefault();
-    const user_name = document.querySelector('#user_name').value.trim();
+    // const user_name = document.querySelector('#user_name').value.trim();
+    const user_name = req.session.username;
     const title = document.querySelector('#title').value.trim();
     const content = document.querySelector('#content').value.trim();
    
@@ -26,5 +27,8 @@ if (user_name && title && content) {
     .querySelector('.post-form')
     .addEventListener('submit', postFormHandler);
     
+
+
+   
     
     
