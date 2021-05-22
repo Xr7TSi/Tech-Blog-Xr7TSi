@@ -37,7 +37,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const newContent = await Content.create({
-      user_name: req.session.username,
+      user_name: req.session.user_name,
       title: req.body.title,
       content: req.body.content,
     });
@@ -98,7 +98,7 @@ router.post('/comment', async (req, res) => {
   try {
     console.log(req.session)
     const newComment = await Comment.create({
-      user_name: req.session.username,
+      user_name: req.session.user_name,
       content: req.body.content,
     });
     res.status(200).json(newComment);
