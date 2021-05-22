@@ -26,7 +26,7 @@ router.get("/:id", async (req, res) => {
 });
 
 
-// post a new blog
+// post a new blog to the database
 /* post in postman should look like this...
     {
       "user_name": "jrein",
@@ -75,7 +75,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// delete a blog post
+// delete a blog post from the database
 router.delete("/:id", async (req, res) => {
   try {
     const contentDelete = await Content.destroy({
@@ -97,10 +97,9 @@ router.delete("/:id", async (req, res) => {
 router.post('/comment', async (req, res) => {
   
   try {
-    console.log(req.session)
     const newComment = await Comment.create({
       user_name: req.session.user_name,
-      content: req.body.content,
+      content: req.body.comment,
     });
     res.status(200).json(newComment);
   } catch (err) {
