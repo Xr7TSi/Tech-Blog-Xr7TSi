@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Content } = require("../../models");
+const { Comment } = require("../../models");
 
 //this is the api/content endpoint
 
@@ -92,7 +93,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-// create a comment
+// create a comment in the database
 router.post('/comment', async (req, res) => {
   
   try {

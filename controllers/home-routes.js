@@ -33,9 +33,14 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-// post
+// post blog
 router.get('/post', (req, res) => {
   res.render('createContent');
+});
+
+// post comment
+router.get('/comment', (req, res) => {
+  res.render('createComment');
 });
 
 
