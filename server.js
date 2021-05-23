@@ -42,4 +42,4 @@ sequelize.sync().then(() => {
 });
 
 
-// use npm run dev to start application with live server restarts on saves
+// use npm run dev to start application with live server restarts on saves.
