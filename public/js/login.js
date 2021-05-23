@@ -27,10 +27,7 @@ const signupFormHandler = async (event) => {
   const user_name = document.querySelector('#user_name').value.trim();
   const email = document.querySelector('#email').value.trim();
   const password = document.querySelector('#password').value.trim();
-  // const user_name = "NewUser"
-  // const email = "NewUser@gmail.com"
-  // const password = "12345678"
-
+  
   if (user_name && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
