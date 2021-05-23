@@ -12,7 +12,6 @@ const sequelize = require("./config/connection");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
 // Set up sessions with cookies
 const sess = {
   secret: 'Super secret secret',
@@ -38,9 +37,10 @@ app.use(routes);
 
 
 
-sequelize.sync({force:true}).then(() => {
+sequelize.sync().then(() => {
   app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
 });
+
 
 
 // use npm run dev to start application with live server restarts on saves.
